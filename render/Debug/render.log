@@ -1,0 +1,5 @@
+﻿  vector.cpp
+c:\users\pc\desktop\render\render\vector.cpp(1): fatal error C1083: 无法打开预编译头文件: “Debug\render.pch”: No such file or directory
+  matrix.cpp
+c:\users\pc\desktop\render\render\matrix.cpp(1): fatal error C1083: 无法打开预编译头文件: “Debug\render.pch”: No such file or directory
+  正在生成代码...
