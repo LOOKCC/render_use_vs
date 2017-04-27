@@ -1,5 +1,5 @@
 #pragma once
-#include"stdafx.h"
+
 #ifndef MATRIX_H_
 #define MATRIX_H_
 
@@ -8,20 +8,22 @@ typedef struct {
 	float m[4][4];
 }matrix;
 
-matrix addm(matrix a, matrix b);
-matrix subm(matrix a, matrix b);
-matrix mulnum(float f, matrix m);
-matrix mulmatr(matrix a, matrix b);
-void set_identity(matrix *m);
-void set_zero(matrix *m);
-vector vmulmat(vector v, matrix m);
+void matrix_add(matrix* out, const matrix a, const matrix b);
+void matrix_sub(matrix *out, const matrix a, const matrix b);
+void matrix_mul_f(float f, matrix *m);
+void matrix_mul_matrix(matrix *out, const matrix a, const matrix b);
+void matrix_set_identity(matrix *m);
+void matrix_set_zero(matrix *m);
+void vector_mul_matrix(vector* out, const vector v, const matrix m);
+void matrix_mul_vector(vector* out, const vector v, const matrix m);
 
-void trans_mat(matrix *m, float x, float y, float z);
-void scale_mat(matrix *m, float x, float y, float z);
-void totate_x_mat(matrix *m, float a);
-void totate_y_mat(matrix *m, float a);
-void totate_z_mat(matrix *m, float a);
+void transform_matrix(matrix *m, float x, float y, float z);
+void scale_matrix(matrix *m, float x, float y, float z);
+void rotate_x_matrix(matrix *m, float a);
+void rotate_y_matrix(matrix *m, float a);
+void rotate_z_matrix(matrix *m, float a);
 
+void matrix_persoective(matrix* out, float fovy, float aspect, float zn, float zf);
 
 
 #endif
