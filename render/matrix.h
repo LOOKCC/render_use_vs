@@ -23,7 +23,7 @@ void rotate_x_matrix(matrix *m, float a);
 void rotate_y_matrix(matrix *m, float a);
 void rotate_z_matrix(matrix *m, float a);
 
-void matrix_persoective(matrix* out, float fovy, float aspect, float zn, float zf);
-
+void matrix_perspective(matrix* out, float fovy, float aspect, float zn, float zf);
+void matrix_set_lookat(matrix *m, const vector *eye, const vector *at, const vector *up);
 
 #endif
