@@ -16,5 +16,7 @@ typedef struct {
 void transform_update(transform *t);
 void transform_init(transform *t, float width, float height);
 void transform_apply(const transform *t, vector *y, const vector *x);
-#endif // !
+int transform_check_cvv(const vector *v);
+//µ¥Î»»¯
+#endif 
 

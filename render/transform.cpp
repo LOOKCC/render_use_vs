@@ -14,6 +14,27 @@ void transform_init(transform *t, float width, float height) {
 	t->height = height;
 	transform_update(t);
 }
+/*
+将矢量x进行project变换
+*/
 void transform_apply(const transform *t, vector *y, const vector *x) {
 	vector_mul_matrix(y, *x, t->transform_matrix);
 }
+/*
+检查齐次坐标同 cvv 的边界用于视锥剪裁
+不懂
+*/
+int transform_check_cvv(const vector *v) {
+	float w = v->w;
+	int check = 0;
+	if (v->z < 0.0f) check |= 1;
+	if (v->z > w) check |= 2;
+	if (v->x < -w) check |= 4;
+	if (v->x > w) check |= 8;
+	if (v->y < -w) check |= 16;
+	if (v->y > w) check |= 32;
+	return check;
+}
+//单位化
+
+

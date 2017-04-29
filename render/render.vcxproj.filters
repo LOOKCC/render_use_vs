@@ -36,6 +36,12 @@
     <ClInclude Include="transform.h">
       <Filter>源文件</Filter>
     </ClInclude>
+    <ClInclude Include="rendering.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="vertex.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="vector.cpp">
@@ -48,6 +54,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="transform.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="rendering.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="vertex.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
