@@ -14,7 +14,7 @@ float point_interp(float t, float x, float y) {
 float vector_length(vector v) {
 	return sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
 }
-void addvvector_add(vector* out, const vector a, const vector b) {
+void vector_add(vector* out, const vector a, const vector b) {
 	out->x = a.x + b.x;
 	out->y = a.y + b.y;
 	out->z = a.z + b.z;
@@ -60,4 +60,11 @@ void vector_interp(vector* out, const vector a, const vector b, float t) {
 	out->y = point_interp(t, a.y, b.y);
 	out->z = point_interp(t, a.z, b.z);
 	out->x = 1.0f;
+}
+void vector_rhw(vector *out, const vector *v){
+	float rhw = 1.0f / v->w;
+	out->x = v->x * rhw;
+	out->y = v->y * rhw;
+	out->z = v->z * rhw;
+	out->w = 1.0f;
 }

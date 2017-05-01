@@ -3,10 +3,9 @@
 #ifndef MATRIX_H_
 #define MATRIX_H_
 
+#include"type.h"
 #include"vector.h"
-typedef struct {
-	float m[4][4];
-}matrix;
+
 
 void matrix_add(matrix* out, const matrix a, const matrix b);
 void matrix_sub(matrix *out, const matrix a, const matrix b);
