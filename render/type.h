@@ -5,6 +5,10 @@
 #include<assert.h>
 #include<stdlib.h>
 #include<stdio.h>
+#define MRE_INDEX_NONE				-1
+#define MRE_INIT_SUCCEED			0
+#define MRE_TRUE					1
+#define MRE_FALSE					0
 #define RENDER_STATE_WIREFRAME 1  //‰÷»æœﬂøÚ
 #define RENDER_STATE_TEXTURE   2  //‰÷»æŒ∆¿Ì
 #define RENDER_STATE_COLOR     4  //‰÷»æ—’…´
@@ -18,6 +22,7 @@ typedef unsigned int IUINT32;
 typedef struct {
 	int width;
 	int height;
+	int keys[512];
 	int exit;
 	HWND handle;
 	HDC context;

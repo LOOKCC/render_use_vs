@@ -50,25 +50,25 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="vector.cpp">
+    <ClCompile Include="window.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="matrix.cpp">
+    <ClCompile Include="light.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="window.cpp">
+    <ClCompile Include="matrix.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="transform.cpp">
+    <ClCompile Include="rendering.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="rendering.cpp">
+    <ClCompile Include="transform.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="vertex.cpp">
+    <ClCompile Include="vector.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="light.cpp">
+    <ClCompile Include="vertex.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

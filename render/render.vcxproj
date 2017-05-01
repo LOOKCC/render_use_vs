@@ -150,13 +150,13 @@
     <ClInclude Include="window.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="light.cpp" />
-    <ClCompile Include="matrix.cpp" />
-    <ClCompile Include="rendering.cpp" />
-    <ClCompile Include="transform.cpp" />
-    <ClCompile Include="vector.cpp" />
-    <ClCompile Include="vertex.cpp" />
-    <ClCompile Include="window.cpp" />
+    <ClCompile Include="light.c" />
+    <ClCompile Include="matrix.c" />
+    <ClCompile Include="rendering.c" />
+    <ClCompile Include="transform.c" />
+    <ClCompile Include="vector.c" />
+    <ClCompile Include="vertex.c" />
+    <ClCompile Include="window.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
