@@ -73,6 +73,7 @@ void device_set_texture(device *dev, void *bits, long pitch, int w, int h) {
 	dev->max_u = (float)(w - 1);
 	dev->max_v = (float)(h - 1);
 }
+
 IUINT32 device_texture_read(const device *dev, float u, float v) {
 	int x, y;
 	u = u*dev->max_u;
@@ -89,6 +90,7 @@ void device_draw_pixel(device *dev, int x, int y, IUINT32 color) {
 	if (((IUINT32)x) < (IUINT32)dev->width && ((IUINT32)y) < (IUINT32)dev->height)
 		dev->framebuffer[y][x] = color;
 }
+//画线，Bresenham算法
 void device_draw_line(device *dev, int x1, int y1, int x2, int y2, IUINT32 c) {
 	int  x,y,rem = 0;
 	if (x1 == x2 && y1 == y2) {
@@ -136,7 +138,7 @@ void device_draw_line(device *dev, int x1, int y1, int x2, int y2, IUINT32 c) {
 		}
 	}
 }
-//v1-v2-v3
+//对三角形进行排序（按y值）v1-v2-v3，并调用扫描线函数进行画线
 void device_rasterize(device* dev, vertex* v1, vertex* v2, vertex *v3) {
 	if (v1->point.y > v2->point.y) {
 		vertex *temp = v2;
@@ -187,6 +189,7 @@ void device_rasterize(device* dev, vertex* v1, vertex* v2, vertex *v3) {
 		}
 	}
 }
+//画横线（扫描线）已知三角形
 void device_draw_scanline(device *dev, float y, vertex *va, vertex *vb, vertex *vc, vertex *vd) {
 	float inter1 = (float)va->point.y != vb->point.y ? (y - va->point.y) / (vb->point.y - va->point.y) : 1;
 	float inter2 = (float)vc->point.y != vd->point.y ? (y - vc->point.y) / (vd->point.y - vc->point.y) : 1;
@@ -204,7 +207,7 @@ void device_draw_scanline(device *dev, float y, vertex *va, vertex *vb, vertex *
 			float rhw = svx.rhw;
 			if(rhw >=zbuffer[x]){
 				zbuffer[x] = rhw;
-				//  do something
+				device_color(dev, &svx, rhw, x, (int)y);
 			}
 		}
 		vertex_add_step(&svx, &step);
@@ -212,12 +215,14 @@ void device_draw_scanline(device *dev, float y, vertex *va, vertex *vb, vertex *
 
 	}
 }
+//变到屏幕视角，原点在屏幕左上角
 void device_transform_view(device *dev, vector* out, const vector *v) {
 	out->x = (v->x + 1.0f) * dev->width * 0.5f;
 	out->y = (1.0f-v->y) * dev->height * 0.5f;
 	out->z = v->z;
 	out->w = 1.0f;
 }
+//画三角形
 void device_draw_primitive(device* dev, const vertex *v1,const vertex *v2,const vertex *v3) {
 	vector p1, p2, p3, c1, c2, c3, a1, a2, a3;
 	int render_state = dev->render_state;
@@ -229,7 +234,7 @@ void device_draw_primitive(device* dev, const vertex *v1,const vertex *v2,const 
 	c1 = t1.point;
 	c2 = t2.point;
 	c3 = t3.point;
-
+	//cvv裁剪
 	if (transform_check_cvv(&c1) != 0) return;
 	if (transform_check_cvv(&c2) != 0) return;
 	if (transform_check_cvv(&c3) != 0) return;
@@ -273,9 +278,11 @@ void device_draw_primitive(device* dev, const vertex *v1,const vertex *v2,const 
 		device_rasterize(dev, &t1, &t2, &t3);
 	}
 }
+
 void dvice_set_light(device* dev, Light light) {
 	dev->light = light;
 }
+//应用光照
 vertex device_apply_light(device *dev, vertex v) {
 	Light light = dev->light;
 	vector light_direction;
@@ -302,11 +309,13 @@ vertex device_apply_light(device *dev, vertex v) {
 	}
 	return out;
 }
+
 void device_vertex(device* dev, vertex *out, const vertex* v) {
 	vertex temp = device_apply_light(dev, *v);
 	out->point = temp.point;
 	out->color = temp.color;
 }
+//应用颜色
 void device_color(device* dev, const vertex *v, float rhw, int x, int y) {
 	int render_state = dev->render_state;
 	float w = 1.0f / rhw;
@@ -326,6 +335,7 @@ void device_color(device* dev, const vertex *v, float rhw, int x, int y) {
 		dev->framebuffer[y][x] = temp;
 	}
 }
+//((int)r << 16) | ((int)g << 8) | ((int)b << 0)使用位的方式储存颜色
 IUINT32 store_color(vertex v, device *dev) {
 	float r, g, b;
 	IUINT32 color;

@@ -1,4 +1,5 @@
 #pragma once
+//不懂，直接抄的，感觉就是一些配置
 #ifndef WINDOW_H_
 #define WINDOW_H_
 #include"type.h"

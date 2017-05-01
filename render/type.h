@@ -1,14 +1,17 @@
 #pragma once
+//所有的typedef和struct
 #ifndef TYPE_H_
 #define TYPE_H_
 #include<Windows.h>
 #include<assert.h>
 #include<stdlib.h>
 #include<stdio.h>
+//window.h里用的，应该几个状态
 #define MRE_INDEX_NONE				-1
 #define MRE_INIT_SUCCEED			0
 #define MRE_TRUE					1
 #define MRE_FALSE					0
+
 #define RENDER_STATE_WIREFRAME 1  //渲染线框
 #define RENDER_STATE_TEXTURE   2  //渲染纹理
 #define RENDER_STATE_COLOR     4  //渲染颜色
@@ -16,8 +19,8 @@
 #define MAX(a,b) ( ((a)>(b)) ? (a):(b) )
 #define MIN(a,b) ( ((a)>(b)) ? (b):(a) )  
 int CMID(int x, int min, int max) { return(x < min) ? min : ((x > max) ? max : x); }
-float point_interp(float t, float x, float y);
-typedef unsigned int IUINT32;
+float point_interp(float t, float x, float y); //插值
+typedef unsigned int IUINT32; //为了保持不同电脑的字节数相同
 //window
 typedef struct {
 	int width;
