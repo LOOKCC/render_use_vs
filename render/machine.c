@@ -3,7 +3,7 @@
 #include "rendering.h"
 Machine mymachine;
 int machine_init(int width, int height, const TCHAR* title, HINSTANCE hinstance) {
-	memset(&mymachine`,0, sizeof(Machine);
+	memset(&mymachine,0, sizeof(Machine));
 	mymachine.fps = 0;
 	mymachine.frame_time_last = 0;
 	if (window_init(&mymachine.window, width, height, title, hinstance)) {
