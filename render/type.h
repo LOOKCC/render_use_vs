@@ -21,6 +21,7 @@
 int CMID(int x, int min, int max) { return(x < min) ? min : ((x > max) ? max : x); }
 float point_interp(float t, float x, float y); //插值
 typedef unsigned int IUINT32; //为了保持不同电脑的字节数相同
+typedef void(*AppTick)(float);
 //window
 typedef struct {
 	int width;
@@ -91,6 +92,15 @@ typedef struct {
 	IUINT32 foreground;
 	Light light;
 }device;
+typedef struct {
+	Window window;
+	device dev;
+	float fps;
+	float frame_time_last;
 
+	AppTick logic_tick;
+	AppTick physics_tick;
+	AppTick render_tick;
+}Machine;
 
 #endif // !TYPE_H_

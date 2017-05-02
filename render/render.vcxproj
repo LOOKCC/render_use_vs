@@ -139,6 +139,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="light.h" />
+    <ClInclude Include="machine.h" />
     <ClInclude Include="matrix.h" />
     <ClInclude Include="rendering.h" />
     <ClInclude Include="stdafx.h" />
@@ -151,6 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="light.c" />
+    <ClCompile Include="machine.c" />
     <ClCompile Include="matrix.c" />
     <ClCompile Include="rendering.c" />
     <ClCompile Include="transform.c" />
