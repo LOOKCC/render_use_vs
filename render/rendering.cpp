@@ -235,9 +235,9 @@ void device_draw_primitive(device* dev, const vertex *v1,const vertex *v2,const 
 	c2 = t2.point;
 	c3 = t3.point;
 	//cvv²Ã¼ô
-	if (transform_check_cvv(&c1) != 0) return;
-	if (transform_check_cvv(&c2) != 0) return;
-	if (transform_check_cvv(&c3) != 0) return;
+	//if (transform_check_cvv(&c1) != 0) return;
+	//if (transform_check_cvv(&c2) != 0) return;
+	//if (transform_check_cvv(&c3) != 0) return;
 
 	vector_rhw(&a1, &c1);
 	vector_rhw(&a2, &c2);
@@ -248,9 +248,9 @@ void device_draw_primitive(device* dev, const vertex *v1,const vertex *v2,const 
 	device_transform_view(dev, &p3, &a3);
 
 	if (render_state & RENDER_STATE_WIREFRAME) {
-		device_draw_line(dev, (int)p1.x, (int)p1.y, (int)p2.x, (int)p2.y, dev->foreground);
-		device_draw_line(dev, (int)p1.x, (int)p1.y, (int)p3.x, (int)p3.y, dev->foreground);
-		device_draw_line(dev, (int)p3.x, (int)p3.y, (int)p2.x, (int)p2.y, dev->foreground);
+		device_draw_line(dev, (int)p1.x, (int)p1.y, (int)p2.x, (int)p2.y, dev->foreground); _getch(); printf("1");
+		device_draw_line(dev, (int)p1.x, (int)p1.y, (int)p3.x, (int)p3.y, dev->foreground); _getch(); printf("2");
+		device_draw_line(dev, (int)p3.x, (int)p3.y, (int)p2.x, (int)p2.y, dev->foreground); _getch(); printf("3");
 	}
 
 	if (render_state & RENDER_STATE_VERTEX) {
@@ -290,7 +290,7 @@ vertex device_apply_light(device *dev, vertex v) {
 	vector_unitize(&light_direction);
 
 	vector normal;
-	vector_mul_matrix(&normal, v.nornmal, dev->t.world);
+	vector_mul_matrix(&normal, v.normal, dev->t.world);
 	normal.w = 0.0f;
 	vector_unitize(&normal);
 	float ndotl = vector_point_mul(normal, light_direction);

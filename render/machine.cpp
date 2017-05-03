@@ -1,6 +1,4 @@
 #include"stdafx.h"
-#include"window.h"
-#include"rendering.h"
 #include"machine.h"
 Machine machine;
 int machine_init(int width, int height, const TCHAR* title, HINSTANCE hinstance) {

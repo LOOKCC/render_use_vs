@@ -4,6 +4,7 @@
 #include<assert.h>
 #include<stdlib.h>
 #include<stdio.h>
+#include<conio.h>
 //window.h里用的，应该几个状态
 #define MRE_INDEX_NONE				-1
 #define MRE_INIT_SUCCEED			0
@@ -56,7 +57,7 @@ typedef struct {
 	Texcoord texcoord;
 	Color color;
 	float rhw;
-	vector nornmal;
+	vector normal;
 }vertex;
 //transform
 typedef struct {
