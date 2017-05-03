@@ -248,9 +248,9 @@ void device_draw_primitive(device* dev, const vertex *v1,const vertex *v2,const 
 	device_transform_view(dev, &p3, &a3);
 
 	if (render_state & RENDER_STATE_WIREFRAME) {
-		device_draw_line(dev, (int)p1.x, (int)p1.y, (int)p2.x, (int)p2.y, dev->foreground); _getch(); printf("1");
-		device_draw_line(dev, (int)p1.x, (int)p1.y, (int)p3.x, (int)p3.y, dev->foreground); _getch(); printf("2");
-		device_draw_line(dev, (int)p3.x, (int)p3.y, (int)p2.x, (int)p2.y, dev->foreground); _getch(); printf("3");
+		device_draw_line(dev, (int)p1.x, (int)p1.y, (int)p2.x, (int)p2.y, dev->foreground);
+		device_draw_line(dev, (int)p1.x, (int)p1.y, (int)p3.x, (int)p3.y, dev->foreground);
+		device_draw_line(dev, (int)p3.x, (int)p3.y, (int)p2.x, (int)p2.y, dev->foreground);
 	}
 
 	if (render_state & RENDER_STATE_VERTEX) {
