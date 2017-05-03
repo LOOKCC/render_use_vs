@@ -18,9 +18,6 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="stdafx.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="targetver.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -45,30 +42,42 @@
     <ClInclude Include="light.h">
       <Filter>源文件</Filter>
     </ClInclude>
-    <ClInclude Include="type.h">
+    <ClInclude Include="stdafx.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="machine.h">
       <Filter>源文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="window.c">
+    <ClCompile Include="Main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="light.c">
+    <ClCompile Include="stdafx.cpp">
+      <Filter>头文件</Filter>
+    </ClCompile>
+    <ClCompile Include="machine.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="matrix.c">
+    <ClCompile Include="light.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="rendering.c">
+    <ClCompile Include="matrix.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="transform.c">
+    <ClCompile Include="rendering.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="vector.c">
+    <ClCompile Include="transform.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="vertex.c">
+    <ClCompile Include="vector.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="vertex.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="window.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,10 +1,6 @@
 #pragma once
-
-#ifndef MATRIX_H_
-#define MATRIX_H_
-
-#include"type.h"
 #include"vector.h"
+#include<math.h>
 
 
 void matrix_add(matrix* out, const matrix a, const matrix b);
@@ -24,5 +20,3 @@ void rotate_z_matrix(matrix *m, float a);
 
 void matrix_perspective(matrix* out, float fovy, float aspect, float zn, float zf);
 void matrix_set_lookat(matrix *m, const vector *eye, const vector *at, const vector *up);
-
-#endif

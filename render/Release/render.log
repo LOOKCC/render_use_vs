@@ -1,0 +1,53 @@
+﻿  stdafx.cpp
+  Main.cpp
+Main.cpp(6): warning C4101: “dev”: 未引用的局部变量
+Main.cpp(7): warning C4101: “fb”: 未引用的局部变量
+  light.cpp
+  machine.cpp
+  matrix.cpp
+matrix.cpp(93): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+matrix.cpp(94): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+matrix.cpp(95): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+matrix.cpp(96): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+matrix.cpp(108): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+matrix.cpp(109): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+matrix.cpp(110): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+matrix.cpp(111): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+matrix.cpp(124): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+matrix.cpp(125): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+matrix.cpp(126): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+matrix.cpp(127): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+  rendering.cpp
+rendering.cpp(36): warning C4244: “参数”: 从“int”转换到“float”，可能丢失数据
+rendering.cpp(301): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+rendering.cpp(302): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+rendering.cpp(303): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+rendering.cpp(343): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+rendering.cpp(344): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+rendering.cpp(345): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+rendering.cpp(347): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+rendering.cpp(347): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+rendering.cpp(348): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+rendering.cpp(348): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+rendering.cpp(349): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+rendering.cpp(349): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+rendering.cpp(353): warning C4244: “=”: 从“IUINT32”转换到“float”，可能丢失数据
+rendering.cpp(354): warning C4244: “=”: 从“IUINT32”转换到“float”，可能丢失数据
+rendering.cpp(355): warning C4244: “=”: 从“IUINT32”转换到“float”，可能丢失数据
+rendering.cpp(361): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+rendering.cpp(361): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+rendering.cpp(362): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+rendering.cpp(362): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+rendering.cpp(363): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+rendering.cpp(363): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+  transform.cpp
+  vector.cpp
+vector.cpp(15): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
+  vertex.cpp
+  window.cpp
+window.cpp(46): warning C4838: 从“int”转换到“DWORD”需要收缩转换
+  正在生成代码
+  All 2 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  已完成代码的生成
+  render.vcxproj -> C:\Users\Minstreams\Documents\GitHub\render_use_vs\Release\render.exe
+  render.vcxproj -> C:\Users\Minstreams\Documents\GitHub\render_use_vs\Release\render.pdb (Full PDB)

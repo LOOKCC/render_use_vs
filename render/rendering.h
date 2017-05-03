@@ -1,13 +1,10 @@
 #pragma once
 
-#ifndef RENDERING_H_
-#define RENDERING_H_
-
 #include"vector.h"
 #include"matrix.h"
 #include"transform.h"
 #include"vertex.h"
-#include"type.h"
+
 #include "light.h"
 
 void device_init(device* dev, int width, int height, void* fb);
@@ -29,5 +26,4 @@ void device_vertex(device* dev, vertex *out, const vertex* v);
 void device_transform_view(device *dev, vector* out, const vector *v);
 void device_color(device* dev, const vertex *v, float rhw, int x, int y);
 IUINT32 store_color(vertex v, device *dev);
-#endif // 
 
