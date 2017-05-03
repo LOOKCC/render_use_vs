@@ -153,6 +153,7 @@
   <ItemGroup>
     <ClCompile Include="light.c" />
     <ClCompile Include="machine.c" />
+    <ClCompile Include="main.c" />
     <ClCompile Include="matrix.c" />
     <ClCompile Include="rendering.c" />
     <ClCompile Include="transform.c" />

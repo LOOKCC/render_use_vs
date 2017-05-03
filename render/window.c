@@ -1,4 +1,5 @@
 #include"window.h"
+#include "machine.h"
 int window_init(Window* window, int w, int h, const TCHAR* title, HINSTANCE hinstance) {
 	window_close(window);
 
@@ -28,7 +29,7 @@ int window_init(Window* window, int w, int h, const TCHAR* title, HINSTANCE hins
 		NULL,
 		NULL,
 		hinstance,
-		NULL,
+		NULL
 		);
 
 	if (window->handle == NULL) {
@@ -110,7 +111,7 @@ void window_dispatch(void)
 	{
 		if (msg.message == WM_QUIT)
 		{
-			mre.window.exit = MRE_TRUE;
+			machine.window.exit = MRE_TRUE;
 		}
 		TranslateMessage(&msg);
 		DispatchMessage(&msg);
@@ -128,12 +129,12 @@ LRESULT CALLBACK window_proc(HWND hWnd, UINT msg, WPARAM wParam, LRESULT lParam)
 	}
 	case WM_KEYDOWN:
 	{
-		mre.window.keys[wParam & 511] = 1;
+		machine.window.keys[wParam & 511] = 1;
 		break;
 	}
 	case WM_KEYUP:
 	{
-		mre.window.keys[wParam & 511] = 0;
+		machine.window.keys[wParam & 511] = 0;
 		break;
 	}
 	default: return DefWindowProc(hWnd, msg, wParam, lParam);
