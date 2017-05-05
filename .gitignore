@@ -1,3 +1,11 @@
+# File
+/[Rr]elease/
+/[Ii]pich/
+/[Dd]ebug/
+
+# Visual Studio 2015 cache directory
+/.vs/
+
 # Prerequisites
 *.d
 
