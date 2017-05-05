@@ -44,3 +44,5 @@
 *.ipch
 *.pdb
 render/Release/render.tlog/link.command.1.tlog
+render.VC.db
+*.opendb
