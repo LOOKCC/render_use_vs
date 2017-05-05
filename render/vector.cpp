@@ -6,7 +6,7 @@
 （线段）插值
 */
 float point_interp(float t, float x, float y) {
-	return x + t * (x - y);
+	return (x + t * (y - x));
 }
 /*
 求模
@@ -37,7 +37,7 @@ X乘
 */
 void vector_cross_mul(vector* out, const vector a, const vector b) {
 	out->x = a.y * b.z - a.z * b.y;
-	out->y = a.x * b.z - a.z * b.x;
+	out->y = a.z * b.x - a.x * b.z;
 	out->z = a.x * b.y - a.y * b.x;
 	out->w = 1.0f;
 }
@@ -59,7 +59,7 @@ void vector_interp(vector* out, const vector a, const vector b, float t) {
 	out->x = point_interp(t, a.x, b.x);
 	out->y = point_interp(t, a.y, b.y);
 	out->z = point_interp(t, a.z, b.z);
-	out->x = 1.0f;
+	out->w = 1.0f;
 }
 void vector_rhw(vector *out, const vector *v){
 	float rhw = 1.0f / v->w;

@@ -4,20 +4,15 @@
 void vertex_rhw_init(vertex *v) {
 	float rhw = 1.0f / v->point.w;
 	v->rhw = rhw;
-	v->texcoord.u *= rhw;
-	v->texcoord.v *= rhw;
-	v->color.r *= rhw;
-	v->color.b *= rhw;
-	v->color.g *= rhw;
 }
 void vertex_interp(vertex *y, const vertex *x1, const vertex *x2, float t) {
-	vector_interp(&y->point, x1->point, x2->point, t);
-	y->texcoord.u = point_interp(x1->texcoord.u, x2->texcoord.u, t);
-	y->texcoord.v = point_interp(x1->texcoord.v, x2->texcoord.v, t);
-	y->color.r = point_interp(x1->color.r, x2->color.r, t);
-	y->color.g = point_interp(x1->color.g, x2->color.g, t);
-	y->color.b = point_interp(x1->color.b, x2->color.b, t);
-	y->rhw = point_interp(x1->rhw, x2->rhw, t);
+	vector_interp(&y->point, x1->point, x2->point,t );
+	y->texcoord.u = point_interp(t,x1->texcoord.u, x2->texcoord.u );
+	y->texcoord.v = point_interp(t,x1->texcoord.v, x2->texcoord.v );
+	y->color.r = point_interp(t,x1->color.r, x2->color.r );
+	y->color.g = point_interp(t,x1->color.g, x2->color.g );
+	y->color.b = point_interp(t,x1->color.b, x2->color.b );
+	y->rhw = point_interp(t,x1->rhw, x2->rhw );
 }
 void vertex_get_step(vertex *step, const vertex* x1, const vertex* x2, float width) {
 	float inv = 1.0f / width;

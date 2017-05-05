@@ -14,7 +14,8 @@
 #define RENDER_STATE_WIREFRAME 1  //äÖÈ¾Ïß¿ò
 #define RENDER_STATE_TEXTURE   2  //äÖÈ¾ÎÆÀí
 #define RENDER_STATE_COLOR     4  //äÖÈ¾ÑÕÉ«
-#define RENDER_STATE_VERTEX     8  //äÖÈ¾¶¥µã
+#define RENDER_STATE_LIGHT     8  //äÖÈ¾¹âÕÕ
+#define RENDER_STATE_VERTEX     16  //äÖÈ¾¶¥µã
 #define MAX(a,b) ( ((a)>(b)) ? (a):(b) )
 #define MIN(a,b) ( ((a)>(b)) ? (b):(a) )  
 extern int CMID(int x, int min, int max);
@@ -57,7 +58,6 @@ typedef struct {
 	Texcoord texcoord;
 	Color color;
 	float rhw;
-	vector normal;
 }vertex;
 //transform
 typedef struct {
@@ -104,3 +104,8 @@ typedef struct
 	AppTick render_tick;
 
 } Machine;
+typedef struct {
+	IUINT32 buffer[256][256];
+	int width;
+	int height;
+}Texture;

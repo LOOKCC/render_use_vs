@@ -48,13 +48,13 @@ void matrix_set_zero(matrix *m) {
 		}
 	}
 }
-void vector_mul_matrix(vector* out, const vector v, const matrix m) {
+void vector_mul_matrix(vector* out, const vector v, const matrix &m) {
 	out->x = v.x * m.m[0][0] + v.y * m.m[1][0] + v.z * m.m[2][0] + v.w * m.m[3][0];
 	out->y = v.x * m.m[0][1] + v.y * m.m[1][1] + v.z * m.m[2][1] + v.w * m.m[3][1];
 	out->z = v.x * m.m[0][2] + v.y * m.m[1][2] + v.z * m.m[2][2] + v.w * m.m[3][2];
 	out->w = v.x * m.m[0][3] + v.y * m.m[1][3] + v.z * m.m[2][3] + v.w * m.m[3][3];
 }
-void matrix_mul_vector(vector* out, const vector v, const matrix m) {
+void matrix_mul_vector(vector* out, const vector v, const matrix &m) {
 	out->x = v.x * m.m[0][0] + v.y * m.m[0][1] + v.z * m.m[0][2] + v.w * m.m[0][3];
 	out->y = v.x * m.m[1][0] + v.y * m.m[1][1] + v.z * m.m[1][2] + v.w * m.m[1][3];
 	out->z = v.x * m.m[2][0] + v.y * m.m[2][1] + v.z * m.m[2][2] + v.w * m.m[2][3];
@@ -144,6 +144,30 @@ void matrix_perspective(matrix* out, float fovy, float aspect, float zn, float z
 	out->m[2][3] = 1.0f;
 	out->m[3][2] = (zn * zf) / (zn - zf);
 }
+
+// 旋转矩阵
+void matrix_set_rotate(matrix *m, float x, float y, float z, float theta) {
+	float qsin = (float)sin(theta * 0.5f);
+	float qcos = (float)cos(theta * 0.5f);
+	vector vec = { x, y, z, 1.0f };
+	float w = qcos;
+	vector_unitize(&vec);
+	x = vec.x * qsin;
+	y = vec.y * qsin;
+	z = vec.z * qsin;
+	m->m[0][0] = 1 - 2 * y * y - 2 * z * z;
+	m->m[1][0] = 2 * x * y - 2 * w * z;
+	m->m[2][0] = 2 * x * z + 2 * w * y;
+	m->m[0][1] = 2 * x * y + 2 * w * z;
+	m->m[1][1] = 1 - 2 * x * x - 2 * z * z;
+	m->m[2][1] = 2 * y * z - 2 * w * x;
+	m->m[0][2] = 2 * x * z - 2 * w * y;
+	m->m[1][2] = 2 * y * z + 2 * w * x;
+	m->m[2][2] = 1 - 2 * x * x - 2 * y * y;
+	m->m[0][3] = m->m[1][3] = m->m[2][3] = 0.0f;
+	m->m[3][0] = m->m[3][1] = m->m[3][2] = 0.0f;
+	m->m[3][3] = 1.0f;
+}
 /*
 设置摄像机
 参数 eye眼睛位置 ，at看的位置 up向上向量
@@ -160,7 +184,7 @@ void matrix_set_lookat(matrix *m, const vector *eye, const vector *at, const vec
 	vector_unitize(&zaxis);
 	vector_cross_mul(&xaxis, *up, zaxis);
 	vector_unitize(&xaxis);
-	vector_cross_mul(&yaxis, *up, zaxis);
+	vector_cross_mul(&yaxis, xaxis, zaxis);
 
 	//求解矩阵
 	m->m[0][0] = xaxis.x;
