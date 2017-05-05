@@ -1,6 +1,5 @@
-# File
 /[Rr]elease/
-/[Ii]pich/
+/[Ii]pich/*
 /[Dd]ebug/
 
 # Visual Studio 2015 cache directory
